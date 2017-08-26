@@ -1,7 +1,7 @@
 ---
 title: "The journey to dotfiles ZEN"
 date: 2017-08-19T23:40:57+03:00
-draft: true
+draft: false
 ---
 ## The problem with dotfiles
 As a new developer you will learn that using the cli will mean that you have to deal with what's called dotfiles which are usually used as configuration files.
