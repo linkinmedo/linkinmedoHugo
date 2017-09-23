@@ -59,3 +59,56 @@ You notice that I wrote the full path to our directory in the linking command, t
 
 ## The remote repository
 
+It starts with initializing a git repository locally, assuming you have git installed you just have to type:
+```
+$ git init
+```
+while you are in the dotfiles directory.
+
+Next you have to go to your favorite git repository hosting site (in our case github.com) and create a new repository called dotfiles.
+
+When you are done creating the remote repository, the next step is to link and push your local repository to it which is as simple as writing two lines in your terminal.
+
+```
+$ git remote add origin git@github.com:yourusername/dotfiles.git
+$ git push -u origin master
+```
+And that's pretty much it.
+
+## Using your dotfiles repository
+
+To use your newly created dotfiles repository on a new device, you just have to clone it to your new device in the same location you had it on you original device.
+
+In our case it's the home directory, so while in your home directory run:
+
+```
+$ git clone git@github.com:yourusername/dotfiles.git
+```
+
+After you clone the repository, you should cd into it and run the install.sh:
+
+```
+$ cd dotfiles
+$ ./install.sh
+```
+and voila you have your local dotfiles synced with your repository dotfiles.
+
+## Making changes
+
+Let's say you made some changes to your dotfiles and want to sync them, all you have to do is commit your new changes and push them to your remote repository:
+
+```
+$ cd ~/dotfiles
+$ git add .
+$ git commit -m 'your message'
+$ git push
+```
+then on the other devices you should pull the changes and run the install.sh:
+
+```
+$ git pull
+$ ./install.sh
+```
+Now you have to do this whenever you make changes to your dotfiles, and they will be the same between all your devices.
+
+Please note that we used .bash_profile in this tutorial but you can use this method with as many files you want you just add the symlink the files and add them to your install.sh.
